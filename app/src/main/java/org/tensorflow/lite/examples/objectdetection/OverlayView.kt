@@ -88,7 +88,7 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             val drawableText =
                 result.categories[0].label + " " +
                         String.format("%.2f", result.categories[0].score)
-
+            
             speechManager.saySomething(result.categories[0].label)
 
             // Draw rect behind display text

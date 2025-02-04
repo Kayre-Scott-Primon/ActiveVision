@@ -28,11 +28,11 @@ import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
 
 class ObjectDetectorHelper(
-  var threshold: Float = 0.5f,
+  var threshold: Float = 0.3f,
   var numThreads: Int = 2,
-  var maxResults: Int = 3,
+  var maxResults: Int = 1,
   var currentDelegate: Int = 0,
-  var currentModel: Int = 0,
+  var currentModel: Int = 1, // aqui muda o modelo usado
   val context: Context,
   val objectDetectorListener: DetectorListener?
 ) {
@@ -40,6 +40,10 @@ class ObjectDetectorHelper(
     // For this example this needs to be a var so it can be reset on changes. If the ObjectDetector
     // will not change, a lazy val would be preferable.
     private var objectDetector: ObjectDetector? = null
+
+    // minimum time between requests
+    private var lastDetectionTime: Long =  0
+    private val detectionIntervalMs: Long = 1500
 
     init {
         setupObjectDetector()
@@ -103,6 +107,12 @@ class ObjectDetectorHelper(
     }
 
     fun detect(image: Bitmap, imageRotation: Int) {
+        val currentTime = SystemClock.uptimeMillis()
+        if (currentTime - lastDetectionTime < detectionIntervalMs) {
+            return // Ignora a detecção se o tempo mínimo não tiver passado
+        }
+        lastDetectionTime = currentTime
+
         if (objectDetector == null) {
             setupObjectDetector()
         }

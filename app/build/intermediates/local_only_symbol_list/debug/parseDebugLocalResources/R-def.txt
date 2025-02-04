@@ -48,7 +48,6 @@ id threads_value
 id threshold_minus
 id threshold_plus
 id threshold_value
-id toolbar
 id view_finder
 integer bottom_sheet_control_text_min_ems
 layout activity_main

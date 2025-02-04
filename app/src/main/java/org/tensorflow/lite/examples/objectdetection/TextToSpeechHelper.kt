@@ -4,13 +4,13 @@ import android.content.Context
 import android.speech.tts.TextToSpeech
 import java.util.Locale
 
-class TextToSpeechHelper(private val context: Context) : TextToSpeech.OnInitListener {
+class TextToSpeechHelper(context: Context) : TextToSpeech.OnInitListener {
     private var textToSpeech: TextToSpeech = TextToSpeech(context, this)
     private var isInitialized = false
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = textToSpeech.setLanguage(Locale("pt", "BR"))
+            val result = textToSpeech.setLanguage(Locale.US) // Define o idioma para inglês
             isInitialized = result != TextToSpeech.LANG_MISSING_DATA && result != TextToSpeech.LANG_NOT_SUPPORTED
         }
     }
