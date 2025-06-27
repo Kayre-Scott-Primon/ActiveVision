@@ -90,3 +90,10 @@ Conclude course work of MBA on Software engineer by USP|ESALQ
 ## based/helper/source
 - https://github.com/tensorflow/tensorflow
 - https://www.tensorflow.org
+
+
+## Project running
+
+https://github.com/user-attachments/assets/7ce64d0a-e095-4052-9728-5f70be58ffe2
+
+
