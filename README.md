@@ -97,3 +97,5 @@ Conclude course work of MBA on Software engineer by USP|ESALQ
 https://github.com/user-attachments/assets/7ce64d0a-e095-4052-9728-5f70be58ffe2
 
 
+## Schematic of business rules
+![tcc3 drawio](https://github.com/user-attachments/assets/8b1ab536-5721-4650-b0ec-069dcecb2841)
